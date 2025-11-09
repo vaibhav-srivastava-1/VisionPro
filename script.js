@@ -1,28 +1,56 @@
-function loco(){
-    gsap.registerPlugin(ScrollTrigger);
+// Wait for all resources to load including external scripts
+function init() {
+    // Check if all required libraries are loaded
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined' || typeof LocomotiveScroll === 'undefined') {
+        // Retry after a short delay
+        setTimeout(init, 100);
+        return;
+    }
 
-const locoScroll = new LocomotiveScroll({
-  el: document.querySelector("#main"),
-  smooth: true
-});
-locoScroll.on("scroll", ScrollTrigger.update);
+    function loco(){
+        gsap.registerPlugin(ScrollTrigger);
 
-ScrollTrigger.scrollerProxy("#main", {
-  scrollTop(value) {
-    return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
-  }, 
-  getBoundingClientRect() {
-    return {top: 0, left: 0, width: window.innerWidth, height: window.innerHeight};
-  },
-  pinType: document.querySelector("#main").style.transform ? "transform" : "fixed"
-});
+        const locoScroll = new LocomotiveScroll({
+            el: document.querySelector("#main"),
+            smooth: true
+        });
+        
+        locoScroll.on("scroll", ScrollTrigger.update);
 
-ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+        ScrollTrigger.scrollerProxy("#main", {
+            scrollTop(value) {
+                return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
+            }, 
+            getBoundingClientRect() {
+                return {top: 0, left: 0, width: window.innerWidth, height: window.innerHeight};
+            },
+            pinType: document.querySelector("#main").style.transform ? "transform" : "fixed"
+        });
 
-ScrollTrigger.refresh();
+        ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
 
+        // Wait for LocomotiveScroll to fully initialize before setting up animations
+        setTimeout(() => {
+            ScrollTrigger.refresh();
+            initAnimations();
+        }, 500);
+    }
+    
+    loco();
 }
-loco()
+
+// Try to initialize when window loads (all resources loaded)
+window.addEventListener('load', init);
+
+// Also try immediately in case scripts are already loaded
+if (document.readyState === 'complete') {
+    init();
+} else {
+    document.addEventListener('DOMContentLoaded', init);
+}
+
+// Initialize all animations after LocomotiveScroll is ready
+function initAnimations() {
 
 
 gsap.to("#page>video",{
@@ -556,3 +584,4 @@ gsap.to("#page23>img",{
   },
   opacity:1
 })
+}
