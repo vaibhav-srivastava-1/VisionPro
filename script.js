@@ -418,31 +418,31 @@ render();
 
 function files(index) {
 var data = `
-.//Apple vision canvas images/Vision00001.png
-.//Apple vision canvas images/Vision00002.png
-.//Apple vision canvas images/Vision00003.png
-.//Apple vision canvas images/Vision00004.png
-.//Apple vision canvas images/Vision00005.png
-.//Apple vision canvas images/Vision00006.png
-.//Apple vision canvas images/Vision00007.png
-.//Apple vision canvas images/Vision00008.png
-.//Apple vision canvas images/Vision00009.png
-.//Apple vision canvas images/Vision00010.png
-.//Apple vision canvas images/Vision00011.png
-.//Apple vision canvas images/Vision00012.png
-.//Apple vision canvas images/Vision00013.png
-.//Apple vision canvas images/Vision00014.png
-.//Apple vision canvas images/Vision00015.png
-.//Apple vision canvas images/Vision00016.png
-.//Apple vision canvas images/Vision00017.png
-.//Apple vision canvas images/Vision00018.png
-.//Apple vision canvas images/Vision00019.png
-.//Apple vision canvas images/Vision00020.png
-.//Apple vision canvas images/Vision00021.png
-.//Apple vision canvas images/Vision00022.png
-.//Apple vision canvas images/Vision00023.png
-.//Apple vision canvas images/Vision00024.png
-.//Apple vision canvas images/Vision00025.png
+/Apple vision canvas images/Vision00001.png
+/Apple vision canvas images/Vision00002.png
+/Apple vision canvas images/Vision00003.png
+/Apple vision canvas images/Vision00004.png
+/Apple vision canvas images/Vision00005.png
+/Apple vision canvas images/Vision00006.png
+/Apple vision canvas images/Vision00007.png
+/Apple vision canvas images/Vision00008.png
+/Apple vision canvas images/Vision00009.png
+/Apple vision canvas images/Vision00010.png
+/Apple vision canvas images/Vision00011.png
+/Apple vision canvas images/Vision00012.png
+/Apple vision canvas images/Vision00013.png
+/Apple vision canvas images/Vision00014.png
+/Apple vision canvas images/Vision00015.png
+/Apple vision canvas images/Vision00016.png
+/Apple vision canvas images/Vision00017.png
+/Apple vision canvas images/Vision00018.png
+/Apple vision canvas images/Vision00019.png
+/Apple vision canvas images/Vision00020.png
+/Apple vision canvas images/Vision00021.png
+/Apple vision canvas images/Vision00022.png
+/Apple vision canvas images/Vision00023.png
+/Apple vision canvas images/Vision00024.png
+/Apple vision canvas images/Vision00025.png
 `;
 return data.split("\n")[index];
 }
