@@ -456,7 +456,8 @@ frame: 1,
 
 for (let i = 0; i < frameCount; i++) {
 const img = new Image();
-img.src = files(i);
+const path = files(i).trim();
+img.src = encodeURI(path);
 images.push(img);
 }
 
