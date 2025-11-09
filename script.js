@@ -426,7 +426,6 @@ ScrollTrigger.create({
   end: `600% top`,
 });
 }
-canvas();
 
 
 
@@ -538,7 +537,6 @@ start: `top top`,
 end: `80% top`,
 });
 }
-canvas1();
 
 
 
@@ -584,4 +582,8 @@ gsap.to("#page23>img",{
   },
   opacity:1
 })
+
+// Initialize canvas animations
+canvas();
+canvas1();
 }
